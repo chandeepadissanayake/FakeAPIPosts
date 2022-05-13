@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_fragment_posts_list">
+
+    <fragment
+        android:id="@+id/nav_fragment_posts_list"
+        android:name="com.chanplusplus.fakeapiposts.fragments.PostsListFragment"
+        tools:layout="@layout/fragment_posts_list">
+
+        <action
+            android:id="@+id/action_nav_posts_list_to_post_details"
+            app:destination="@id/nav_fragment_post_details"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_post_details"
+        android:name="com.chanplusplus.fakeapiposts.fragments.PostDetailsFragment"
+        tools:layout="@layout/fragment_post_details">
+
+        <argument
+            android:name="arg_nav_post_id"
+            app:argType="integer"/>
+
+        <action
+            android:id="@+id/action_nav_post_details_to_post_comments"
+            app:destination="@id/nav_fragment_post_comments_list"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_post_comments_list"
+        android:name="com.chanplusplus.fakeapiposts.fragments.PostCommentsFragment"
+        tools:layout="@layout/fragment_post_comments">
+
+        <argument
+            android:name="arg_nav_post_id"
+            app:argType="integer"/>
+    </fragment>
+
+</navigation>
